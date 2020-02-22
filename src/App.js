@@ -38,6 +38,9 @@ class App extends React.Component {
 		this.setState({users : [], loading : false})
 	};
 	render() {
+
+		
+
 		return (
 			<div className="App">
 				<NavBar />
