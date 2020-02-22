@@ -20,8 +20,12 @@ class App extends React.Component {
 		this.setState({ users: res.data, loading: false });
 	}
 
-	searchUsers=(text)=>{
-		console.log(text);
+	searchUsers= async (text)=>{
+		this.setState({ loading: true });
+
+		const res = await axios.get(`https://api.github.com/search/users?q=${text}&client_id=${process.env.GITHUB_CLIENT_ID}&client_secret=${process.env.GITHUB_SECRET}`);
+
+		this.setState({ users: res.data.items, loading: false });
 	}
 	render() {
 		return (
