@@ -10,7 +10,8 @@ import Search from './components/users/Search';
 class App extends React.Component {
 	state = {
 		users: [],
-		loading: false
+		loading: false,
+		alert : null
 	};
 
 	async componentDidMount() {
@@ -35,17 +36,23 @@ class App extends React.Component {
 	};
 
 	clearUsers = () => {
-		this.setState({users : [], loading : false})
+		this.setState({ users: [], loading: false });
 	};
+
+	setAlert = (msg,type)=>{
+		this.setState({alert : {msg : msg, type: type}})
+	}
 	render() {
-
-		
-
 		return (
 			<div className="App">
 				<NavBar />
 				<div className="container">
-					<Search searchUsers={this.searchUsers} clearUsers={this.clearUsers} showClear={this.state.users.length > 0 ? true : false}/>
+					<Search
+						searchUsers={this.searchUsers}
+						clearUsers={this.clearUsers}
+						showClear={this.state.users.length > 0 ? true : false}
+						setAlert={this.setAlert}
+					/>
 					<Users loading={this.state.loading} users={this.state.users} />
 				</div>
 			</div>
