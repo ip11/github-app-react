@@ -8,6 +8,7 @@ import NavBar from './components/layouts/NavBar';
 import Users from './components/users/Users';
 import Search from './components/users/Search';
 import Alert from './components/layouts/Alert';
+import About from "./components/pages/About";
 
 class App extends React.Component {
 	state = {
@@ -57,7 +58,7 @@ class App extends React.Component {
 						<Alert alert={this.state.alert} />
 						<Switch>
 							<Route
-								path="/"
+								exact path="/"
 								render={(props) => (
 									<Fragment>
 										<Search
@@ -70,6 +71,8 @@ class App extends React.Component {
 									</Fragment>
 								)}
 							/>
+							<Route exact path="/about" component={About}/>
+						
 						</Switch>
 					</div>
 				</div>
