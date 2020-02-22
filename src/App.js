@@ -12,8 +12,9 @@ class App extends React.Component {
 	};
 
 	async componentDidMount() {
+		console.log(process.env.GITHUB_SECRET)
 		this.setState({ loading: true });
-		const res = await axios.get('https://api.github.com/users');
+		const res = await axios.get(`https://api.github.com/users?client_id=${process.env.GITHUB_CLIENT_ID}&client_secret=${process.env.GITHUB_SECRET}`);
 
 		this.setState({ users: res.data, loading: false });
 	}
