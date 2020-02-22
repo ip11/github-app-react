@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import UserItem from "./UserItem";
  class Users extends Component {
     state = {
         users : [
@@ -28,9 +28,9 @@ import React, { Component } from 'react'
         return (
             <div>
                 {this.state.users.map(user => (
-                    <div key={user.id}>
-                        {user.login}
-                    </div>
+                    <UserItem key={user.id} user={user}/>
+                        
+                   
                 ))}
             </div>
         )
