@@ -21,7 +21,8 @@ export class User extends Component {
 			bio,
 			blog,
 			login,
-			html_url,
+            html_url,
+            company,
 			followers,
 			following,
 			public_repos,
@@ -61,6 +62,23 @@ export class User extends Component {
 						<a href={html_url} className="btn btn-dark my-1 ">
 							Visit GitHub Profile
 						</a>
+                        <ul>
+                            <li>
+                                {login && <Fragment>
+                                        <strong>Username : </strong> {login}
+                                    </Fragment>}
+                            </li>
+                            <li>
+                                {company && <Fragment>
+                                        <strong>Company : </strong> {company}
+                                    </Fragment>}
+                            </li>
+                            <li>
+                                {blog && <Fragment>
+                                        <strong>Website : </strong> {blog}
+                                    </Fragment>}
+                            </li>
+                        </ul>
 					</div>
 				</div>
 			</Fragment>
