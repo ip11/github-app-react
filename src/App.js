@@ -13,6 +13,7 @@ import About from "./components/pages/About";
 class App extends React.Component {
 	state = {
 		users: [],
+		user : {},
 		loading: false,
 		alert: null
 	};
@@ -37,6 +38,23 @@ class App extends React.Component {
 
 		this.setState({ users: res.data.items, loading: false });
 	};
+
+
+	//getSingleUser
+	getUser = async (username)=>{
+		this.setState({ loading: true });
+
+		const res = await axios.get(
+			`https://api.github.com/users/${username}?client_id=${process.env
+				.GITHUB_CLIENT_ID}&client_secret=${process.env.GITHUB_SECRET}`
+		);
+
+		this.setState({ user: res.data, loading: false });
+	}
+
+
+
+
 
 	clearUsers = () => {
 		this.setState({ users: [], loading: false });
