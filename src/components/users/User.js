@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import Spinner from '../layouts/Spinner';
+import Repos from './Repos';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
 
 export class User extends Component {
 	componentDidMount() {
@@ -13,7 +15,8 @@ export class User extends Component {
 		loading: PropTypes.bool,
 		user: PropTypes.object.isRequired,
 		getUser: PropTypes.func.isRequired,
-		getUserRepos: PropTypes.func.isRequired
+        getUserRepos: PropTypes.func.isRequired,
+        repos : PropTypes.array.isRequired,
 	};
 	render() {
 		const {
@@ -32,7 +35,7 @@ export class User extends Component {
 			hireable
 		} = this.props.user;
 
-		const { loading } = this.props;
+		const { loading,repos } = this.props;
 
 		if (loading) {
 			return <Spinner />;
@@ -95,6 +98,7 @@ export class User extends Component {
 					<div className="badge badge-light">Public Repositories : {public_repos}</div>
 					<div className="badge badge-dark">Public Gists : {public_gists}</div>
 				</div>
+                <Repos repos={repos}/>
 			</Fragment>
 		);
 	}
