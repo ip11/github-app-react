@@ -48,7 +48,7 @@ export class User extends Component {
 				)}
 				<div className="card grid-2">
 					<div className="all-center">
-						<img src={avatar_url} className="round-img" alt="Git Image" style={{ width: '150px' }} />
+						<img src={avatar_url} className="round-img" alt="" style={{ width: '150px' }} />
 						<h1>{name}</h1>
 						<p>Location : {location} </p>
 					</div>
@@ -81,6 +81,20 @@ export class User extends Component {
                         </ul>
 					</div>
 				</div>
+                <div className='card text-center'>
+                    <div className='badge badge-primary'>
+                            Followers : {followers}
+                    </div>
+                    <div className='badge badge-success'>
+                            Following : {following}
+                    </div>
+                    <div className='badge badge-light'>
+                            Public Repositories : {public_repos}
+                    </div>
+                    <div className='badge badge-dark'>
+                            Public Gists : {public_gists}
+                    </div>
+                </div>
 			</Fragment>
 		);
 	}
