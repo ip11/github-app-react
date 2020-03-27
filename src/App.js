@@ -89,7 +89,7 @@ class App extends React.Component {
 							<Route exact path="/about" component={About} />
 							<Route
 								exact
-								path="/user/:login"
+								path="/users/:login"
 								render={(props) => (
 									<User
 										{...props}
